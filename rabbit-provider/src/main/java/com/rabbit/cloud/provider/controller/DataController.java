@@ -32,4 +32,24 @@ public class DataController {
 		return result;
 	}
 	
+	@GetMapping("/result/one")
+	public ResultBean resultOne(){
+		System.out.println("收到 result one 请求。");
+		ResultBean result = new ResultBean();
+		result.setAge(1);
+		result.setCode("WZF000");
+		result.setMsg("成功");
+		return result;
+	}
+	
+	@GetMapping("/result/two")
+	public ResultBean resultTwo(){
+		System.out.println("收到 result two 请求。");
+		ResultBean result = new ResultBean();
+		result.setAge(2);
+		result.setCode("WZF000");
+		result.setMsg("成功");
+		return result;
+	}
+	
 }

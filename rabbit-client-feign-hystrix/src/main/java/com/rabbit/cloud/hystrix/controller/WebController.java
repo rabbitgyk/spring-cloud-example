@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.rabbit.cloud.common.model.ResultBean;
+import com.rabbit.cloud.hystrix.model.ResponseBean;
 import com.rabbit.cloud.hystrix.service.DataClient;
 
 @RestController
@@ -40,6 +41,18 @@ public class WebController {
 		result.setCode("WZF999");
 		result.setMsg("失败");
 		return result;
+	}
+	
+	@GetMapping("/result/one")
+	public String resultOne(){
+		log.info("接收到 result consumer one 请求");
+		return dataClient.resultConsumerOne();
+	}
+	
+	@GetMapping("/result/two")
+	public ResponseBean resultTwo(){
+		log.info("接收到 result consumer two 请求");
+		return dataClient.resultConsumerTwo();
 	}
 	
 	

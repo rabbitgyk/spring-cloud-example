@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rabbit.cloud.common.model.ResultBean;
+import com.rabbit.cloud.hystrix.model.ResponseBean;
 
 @FeignClient("rabbit-provider")
 @RequestMapping("/provider")
@@ -15,4 +16,10 @@ public interface DataClient {
 	
 	@GetMapping("/result")
 	ResultBean resultConsumer();
+	
+	@GetMapping("/result/one")
+	String resultConsumerOne();
+	
+	@GetMapping("/result/two")
+	ResponseBean resultConsumerTwo();
 }
