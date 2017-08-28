@@ -43,6 +43,7 @@ public class WebController {
 		return result;
 	}
 	
+	@HystrixCommand
 	@GetMapping("/result/one")
 	public String resultOne(){
 		log.info("接收到 result consumer one 请求");
